@@ -20,7 +20,9 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export PATH=/usr/local/heroku/bin:$PATH
 
 export LATEST_JDK=`ls -1 /Library/Java/JavaVirtualMachines | tail -n1`
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/${LATEST_JDK}/Contents/Home
+if [ ! -z $LATEST_JDK ]; then
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/${LATEST_JDK}/Contents/Home
+fi
 
 export NVM_DIR=$HOME/.nvm
 . /usr/local/opt/nvm/nvm.sh
