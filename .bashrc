@@ -37,7 +37,7 @@ function prompt_command() {
     PS1+=" ${GRAY}\342\206\222${RESET} "
 }
 
-PROMPT_COMMAND="prompt_command"
+PROMPT_COMMAND="prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # if [ -z $INSIDE_EMACS ]; then
 # else
