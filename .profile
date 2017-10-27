@@ -34,7 +34,7 @@ fi
 . $HOME/.opam/opam-init/init.sh
 
 ANDROID_HOME=$HOME/Library/Android/sdk
-if [ -f $ANDROID_HOME ]; then
+if [ -d $ANDROID_HOME ]; then
     export ANDROID_HOME
     export PATH=$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
 fi
