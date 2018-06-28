@@ -25,16 +25,9 @@ function prompt_command() {
     PS1+="${BLUE}\W${RESET}"
     BRANCH=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
     if [ $? == 0 ]; then
-        GAP=
-        if [ -z $INSIDE_EMACS ]; then
-            GAP=" "
-        fi
-        if [ $BRANCH == "master" ]; then
-            BRANCH=
-        fi
-        PS1+=" \342\216\207${GAP}${GREEN}${BRANCH}${RESET}"
+        PS1+=" ${GREEN}${BRANCH}${RESET}"
     fi
-    PS1+=" ${GRAY}\342\206\222${RESET} "
+    PS1+=" ${GRAY}->${RESET} "
 }
 
 PROMPT_COMMAND="prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
