@@ -31,9 +31,3 @@ function prompt_command() {
 }
 
 PROMPT_COMMAND="prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
-
-# if [ -z $INSIDE_EMACS ]; then
-# else
-#     PROMPT_COMMAND=""
-#     PS1="\W % "
-# fi
