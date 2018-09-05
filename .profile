@@ -8,10 +8,13 @@ export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 export PERL_MB_OPT="--install_base \"$HOME/perl5\"";
 export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
 
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/.cabal/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
-export PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/.cabal/bin
+PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
+PATH=$PATH:$HOME/.local/bin
+if [ -f "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ]; then
+    PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
 
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export MANPATH="/opt/local/share/man:$MANPATH"
