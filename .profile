@@ -22,6 +22,11 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR=emacsclient
 export REACT_EDITOR=emacsclient
 
+export NVM_DIR=$HOME/nvm
+. $NVM_DIR/nvm.sh
+
+echo node `node -v`, npm: `npm -v`
+
 ### Added by the Heroku Toolbelt
 export PATH=/usr/local/heroku/bin:$PATH
 
@@ -29,9 +34,6 @@ export LATEST_JDK=`ls -1 /Library/Java/JavaVirtualMachines | tail -n1`
 if [ ! -z $LATEST_JDK ]; then
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/${LATEST_JDK}/Contents/Home
 fi
-
-export NVM_DIR=$HOME/.nvm
-. /usr/local/opt/nvm/nvm.sh
 
 if [ -f ".profile_personal" ]; then
    . .profile_personal
