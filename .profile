@@ -21,7 +21,7 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR=emacsclient
 export REACT_EDITOR=emacsclient
 
-export NVM_DIR="$HOME/nvm"
+export NVM_DIR="$HOME/software/nvm"
 if [ -d $NVM_DIR ]; then
     . "$NVM_DIR/nvm.sh"
     echo node `node -v`, npm: `npm -v`
@@ -34,10 +34,11 @@ if [ -d $HEROKU_PATH ]; then
     export PATH="$HEROKU_PATH:$PATH"
 fi
 
-export LATEST_JDK=`ls -1 /Library/Java/JavaVirtualMachines | tail -n1`
-
-if [ ! -z $LATEST_JDK ]; then
-    export JAVA_HOME="/Library/Java/JavaVirtualMachines/${LATEST_JDK}/Contents/Home"
+if [ -d /Library/Java/JavaVirtualMachines ]; then
+    export LATEST_JDK=`ls -1 /Library/Java/JavaVirtualMachines | tail -n1`
+    if [ ! -z $LATEST_JDK ]; then
+        export JAVA_HOME="/Library/Java/JavaVirtualMachines/${LATEST_JDK}/Contents/Home"
+    fi
 fi
 
 PRIVATE="$HOME/.profile_personal"
@@ -65,3 +66,5 @@ function emulator {
 if [ -f $HOME/.bazelenv ]; then
     source $HOME/.bazelenv
 fi
+
+alias npx="npx --no-install"
