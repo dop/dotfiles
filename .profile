@@ -28,6 +28,11 @@ if [ -d $NVM_DIR ]; then
 fi
 export NODE_OPTIONS="--max-old-space-size=4096"
 
+export N_PREFIX=$HOME/.n
+if [ -d $N_PREFIX ]; then
+    export PATH=$N_PREFIX/bin:$PATH
+fi
+
 ### Added by the Heroku Toolbelt
 HEROKU_PATH="/usr/local/heroku/bin"
 if [ -d $HEROKU_PATH ]; then
