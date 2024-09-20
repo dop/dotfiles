@@ -26,7 +26,7 @@ if [ -d $NVM_DIR ]; then
     . "$NVM_DIR/nvm.sh"
     echo node `node -v`, npm: `npm -v`
 fi
-export NODE_OPTIONS="--max-old-space-size=4096"
+export NODE_OPTIONS="--max-old-space-size=8192"
 
 export N_PREFIX=$HOME/.n
 if [ -d $N_PREFIX ]; then
