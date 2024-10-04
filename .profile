@@ -72,4 +72,7 @@ if [ -f $HOME/.bazelenv ]; then
     source $HOME/.bazelenv
 fi
 
+export GEM_HOME=$HOME/.gem
+export PATH="$GEM_HOME/bin:$PATH"
+
 alias npx="npx --no-install"
