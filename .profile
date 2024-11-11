@@ -17,4 +17,8 @@ if [ -f $PRIVATE ]; then
    . $PRIVATE
 fi
 
+if [ -x "$(which direnv)" ]; then
+    eval "$(direnv hook zsh)"
+fi
+
 alias npx="npx --no-install"
