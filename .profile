@@ -8,7 +8,13 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR=emacsclient
 export REACT_EDITOR=emacsclient
 
-eval "$(fnm env --shell zsh)"
+export NVM_DIR="$HOME/software/nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+else
+  eval "$(fnm env --shell zsh)"
+fi
+
 echo node: `node -v`, npm: `npm -v`
 export NODE_OPTIONS="--max-old-space-size=8192"
 

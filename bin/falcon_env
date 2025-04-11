@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. $NVM_DIR/nvm.sh && {
+    nvm use || nvm install
+}
+
+if [ -d "node_modules/.bin" ]; then
+    PWD=`pwd`
+    export PATH="$PWD/node_modules/.bin:$PATH"
+fi

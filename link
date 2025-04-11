@@ -1,0 +1,23 @@
+#!/bin/sh
+
+CONFIGS=".profile .zshrc .ghci"
+RELATIVE_DIR=$(dirname $0)
+ABSOLUTE_DIR=$(realpath $RELATIVE_DIR)
+
+echo Inside $ABSOLUTE_DIR
+
+link() {
+    SOURCE=$1
+    DEST=$2
+    if [ ! -e $DEST -o -h $DEST ]; then
+        ln -vsf $SOURCE $DEST
+    fi
+}
+
+for CONFIG in $CONFIGS; do
+    link "$ABSOLUTE_DIR/$CONFIG" "$HOME/$CONFIG"
+done
+
+for BIN in $(ls $ABSOLUTE_DIR/bin); do
+    link "$ABSOLUTE_DIR/bin/$BIN" "$HOME/.local/bin/$BIN"
+done
