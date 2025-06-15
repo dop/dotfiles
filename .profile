@@ -4,6 +4,9 @@ export LANG="en_US.UTF-8"
 
 export PATH="$HOME/.local/bin:/opt/local/bin:/opt/local/sbin:$PATH"
 export MANPATH="/opt/local/share/man:$MANPATH"
+if [ -d "/opt/local/lib/ImageMagick7/bin" ]; then
+    export PATH="/opt/local/lib/ImageMagick7/bin:$PATH"
+fi
 
 export EDITOR=emacsclient
 export REACT_EDITOR=emacsclient
