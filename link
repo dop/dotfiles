@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIGS=".profile .zshrc .ghci"
+CONFIGS=".profile .zshrc .ghci .gitconfig .gitignore .gitattributes"
 RELATIVE_DIR=$(dirname $0)
 ABSOLUTE_DIR=$(realpath $RELATIVE_DIR)
 

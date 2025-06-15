@@ -1,0 +1,24 @@
+[user]
+	name = Donatas Petrauskas
+	email = donatas.petr@gmail.com
+        useConfigOnly = true
+
+[core]
+        attributesfile = ~/.gitattributes
+	excludesFile = ~/.gitignore
+        commentchar = ";"
+
+[push]
+        autoSetupRemote = true
+
+[pull]
+        rebase = true
+
+[diff "common-lisp"]
+      xfuncname="^\\((def\\S+\\s+\\S+)"
+
+[diff "elisp"]
+      xfuncname="^\\((((def\\S+)|use-package)\\s+\\S+)"
+
+[diff "common-lisp-asdf"]
+	xfuncname="^\\((defsystem\\s+\"[^\"]+\")"

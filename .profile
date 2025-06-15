@@ -18,7 +18,7 @@ else
   eval "$(fnm env --shell zsh)"
 fi
 
-echo node: `node -v`, npm: `npm -v`
+type node >/dev/null && echo node: `node -v`, npm: `npm -v`
 export NODE_OPTIONS="--max-old-space-size=8192"
 
 PRIVATE="$HOME/.profile_personal"
