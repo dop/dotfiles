@@ -3,6 +3,9 @@
 	email = donatas.petr@gmail.com
         useConfigOnly = true
 
+[include]
+        path = ~/work/gitconfig
+
 [core]
         attributesfile = ~/.gitattributes
 	excludesFile = ~/.gitignore
