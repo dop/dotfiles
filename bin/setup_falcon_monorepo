@@ -3,11 +3,17 @@
 # Initialize frontend monorepo with .env.local files with my preferred
 # configuration.
 
-find . -type d -name node_modules -prune -o -name .env -print |
-    while read ENV; do
-        echo Creating ${ENV}.local ...
-        echo TRUSTED_CERTIFICATE=false >> ${ENV}.local
-        echo PROGRESS_BAR=false >> ${ENV}.local
+find . \( -type d -name node_modules -prune \) -o \( -type f -name package.json -print \) |
+    while read PACKAGE_JSON; do
+        FRAMEWORK=$(jq .wix.framework.type "$PACKAGE_JSON")
+        case $FRAMEWORK in
+            \"yoshi*)
+                ENV_LOCAL=$(dirname $PACKAGE_JSON)/.env.local
+                echo Creating $ENV_LOCAL ...
+                echo TRUSTED_CERTIFICATE=false >> $ENV_LOCAL
+                echo PROGRESS_BAR=false >> $ENV_LOCAL
+                ;;
+        esac
     done
 
 # add .envrc
