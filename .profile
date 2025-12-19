@@ -23,11 +23,22 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 
 PRIVATE="$HOME/.profile_personal"
 if [ -f $PRIVATE ]; then
-   . $PRIVATE
+   source $PRIVATE
 fi
 
 if [ -x "$(which direnv)" ]; then
     eval "$(direnv hook zsh)"
 fi
 
-alias npx="npx --no-install"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21-amazon-corretto.jdk/Contents/Home
+export PATH="$PATH:$JAVA_HOME/bin"
+
+#export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
+#export ANDROID_PLATFORM_TOOLS=/opt/homebrew/bin
+
+#source "$HOME/.bazelenv"
+
+WORK_ENV="$HOME/work/profile.sh"
+if [ -f "$WORK_ENV" ]; then
+    source $WORK_ENV
+fi

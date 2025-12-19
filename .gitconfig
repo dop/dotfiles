@@ -25,3 +25,6 @@
 
 [diff "common-lisp-asdf"]
 	xfuncname="^\\((defsystem\\s+\"[^\"]+\")"
+[http]
+	lowSpeedLimit = 1000
+	lowSpeedTime = 300
