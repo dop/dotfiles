@@ -6,21 +6,24 @@
 update_env_local() {
     ENV_LOCAL=$1
     echo "Editing $ENV_LOCAL ..."
-    sed -i .bak -e '/^TRUSTED_CERTIFICATE/ d' -e '/^PROGRESS_BAR/ d' $ENV_LOCAL
+    if [ -f "$ENV_LOCAL" ]; then
+        sed -i .bak -e '/^TRUSTED_CERTIFICATE/ d' -e '/^PROGRESS_BAR/ d' $ENV_LOCAL
+    fi
     echo TRUSTED_CERTIFICATE=false >> $ENV_LOCAL
     echo PROGRESS_BAR=false >> $ENV_LOCAL
 }
 
 find . \( -type d -name node_modules -prune \) -o \( -type f -name package.json -print \) |
     while read PACKAGE_JSON; do
+        ENV_LOCAL="$(dirname $PACKAGE_JSON)/.env.local"
         YOSHI=$(jq 'has("yoshi")' "$PACKAGE_JSON")
         if [ $YOSHI = "true" ]; then
-                update_env_local "$(dirname $PACKAGE_JSON)/.env.local"
+                update_env_local $ENV_LOCAL
         else
             FRAMEWORK=$(jq .wix.framework.type "$PACKAGE_JSON")
             case $FRAMEWORK in
                 \"yoshi*)
-                    update_env_local "$(dirname $PACKAGE_JSON)/.env.local"
+                    update_env_local $ENV_LOCAL
                     ;;
             esac
         fi
