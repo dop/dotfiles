@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Usage: stack_photos output.jpg input1.jpg input2.jpg
+
+function stack () {
+    OUT=$1
+
+    shift
+
+    magick montage \
+           -tile 1x \
+           -units pixelspercentimeter \
+           -density 100 \
+           -page 2100x2970 \
+           -background white \
+           -bordercolor none \
+           -border 20x10 \
+           -geometry 1820x1314+0+0^ \
+           -quality 100 $* $OUT
+}
+
+stack $1 $2 $3
