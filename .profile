@@ -36,7 +36,7 @@ export PATH="$PATH:$JAVA_HOME/bin"
 #export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
 #export ANDROID_PLATFORM_TOOLS=/opt/homebrew/bin
 
-#source "$HOME/.bazelenv"
+source "$HOME/.bazelenv"
 
 WORK_ENV="$HOME/work/profile.sh"
 if [ -f "$WORK_ENV" ]; then
