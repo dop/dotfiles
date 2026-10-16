@@ -47,3 +47,6 @@ PLAN9=/usr/local/plan9
 export PLAN9
 PATH=$PATH:$PLAN9/bin
 export PATH
+# to run zsh in acme/9term, disable bracketed paste.
+# from https://blog.silvela.org/post/2021-12-11-acme-tricks/
+unset zle_bracketed_paste
