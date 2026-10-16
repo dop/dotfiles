@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIGS=".profile .zshrc .ghci .gitconfig .gitignore .gitattributes"
+CONFIGS=".profile .zshrc .ghci .gitconfig .gitignore .gitattributes .tmux.conf"
 RELATIVE_DIR=$(dirname $0)
 ABSOLUTE_DIR=$(realpath $RELATIVE_DIR)
 
